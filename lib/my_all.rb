@@ -2,8 +2,12 @@ require 'pry'
 
 def my_all?(collection)
   i = 0
+  on = true
   while i < collection.length
-    yield(collection[i])
+    if yield(collection[i]) == false 
+      on = false 
+    end
     i = i + 1
   end
+  return on
 end
